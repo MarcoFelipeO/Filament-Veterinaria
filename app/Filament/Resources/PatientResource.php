@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class PatientResource extends Resource
 {
@@ -23,25 +24,40 @@ class PatientResource extends Resource
     {
         return $form
             ->schema([
+
+
                 //AQUI VA EL FORMULARIO DE CREAR NUESTROS PACIENTES
 
-            Forms\Components\TextInput::make('name')
-                //VALIDACIONES DEL CAMPO NOMBRE
-                    ->required()
-                    ->maxLength(255),
-            Forms\Components\Select::make('type')
-                    ->options([
-                        'cat' => 'Cat',
-                        'dog' => 'Dog',
-                        'rabbit' => 'Rabbit',
-                        'elephant' => 'Elephant',
-                        'tiger' => 'Tiger',
-                    ])
-                     //VALIDACIONES DEL CAMPO 
-                    ->required(),
-            Forms\Components\DatePicker::make('date_of_birth')  
-                    ->required()
-                    ->maxDate(now()),
+                        Forms\Components\TextInput::make('name')
+                                //VALIDACIONES DEL CAMPO NOMBRE
+                                    ->required()
+                                    ->maxLength(255),
+                        Forms\Components\Select::make('type')
+                                    ->options([
+                                        'cat' => 'Cat',
+                                        'dog' => 'Dog',
+                                        'rabbit' => 'Rabbit',
+                                        'elephant' => 'Elephant',
+                                        'tiger' => 'Tiger',
+                                    ])
+                                //VALIDACIONES DEL CAMPO 
+                                    ->required(),
+                        Forms\Components\DatePicker::make('date_of_birth')  
+                                    ->required()
+                                    ->maxDate(now()),
+                        Forms\Components\Select::make('owner_id')
+                                    ->relationship('owner', 'name')
+                                    ->searchable()
+                                    ->preload()//Precarga los datos del componente de selección, lo que significa que se cargarán las opciones antes de que el formulario se muestre al usuario. 
+                                    ->required()
+
+
+
+
+
+
+
+             // FIN DE ESQUEMA       END OF SCHEMA
             ]);
     }
 
