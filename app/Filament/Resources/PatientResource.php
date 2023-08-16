@@ -45,18 +45,27 @@ class PatientResource extends Resource
                         Forms\Components\DatePicker::make('date_of_birth')  
                                     ->required()
                                     ->maxDate(now()),
-                        Forms\Components\Select::make('owner_id')
+                                    Forms\Components\Select::make('owner_id')
                                     ->relationship('owner', 'name')
                                     ->searchable()
-                                    ->preload()//Precarga los datos del componente de selección, lo que significa que se cargarán las opciones antes de que el formulario se muestre al usuario. 
+                                    ->preload()
+                                    ->createOptionForm([
+                                        Forms\Components\TextInput::make('name')
+                                            ->required()
+                                            ->maxLength(255),
+                                        Forms\Components\TextInput::make('email')
+                                            ->label('Email address')
+                                            ->email()
+                                            ->required()
+                                            ->maxLength(255),
+                                        Forms\Components\TextInput::make('phone')
+                                            ->label('Phone number')
+                                            ->tel()
+                                            ->required(),
+                                    ])
                                     ->required()
 
-
-
-
-
-
-
+                                    
              // FIN DE ESQUEMA       END OF SCHEMA
             ]);
     }
