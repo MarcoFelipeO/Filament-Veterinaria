@@ -11,7 +11,7 @@ class Owner extends Model
     use HasFactory;
  
 
-//LOS CAMPOS QUE SE DEFINEN TANTO EN EL MODELO, COMO EN LAS MIGRACIONES, DE ESTO SE TIENEN QUE DEFINIR AQUI!!!
+    //LOS CAMPOS QUE SE DEFINEN AQUI EN EL MODELO, COMO EN LAS MIGRACIONES, Y LUEGO EN EL FORMULARIO!!!
      
     protected $fillable = [
         'email',
