@@ -65,7 +65,7 @@ class PatientResource extends Resource
                                     ])
                                     ->required()
 
-                                    
+
              // FIN DE ESQUEMA       END OF SCHEMA
             ]);
     }
@@ -74,10 +74,31 @@ class PatientResource extends Resource
     {
         return $table
             ->columns([
-                //
+                //AQUI AGREGAR COLUMNAS A LA TABLA PATIENT
+                Tables\Columns\TextColumn::make('name')
+                ->searchable(),
+                Tables\Columns\TextColumn::make('type'),
+                Tables\Columns\TextColumn::make('date_of_birth')
+                ->sortable(),
+                Tables\Columns\TextColumn::make('owner.name')
+                ->searchable(),
+                Tables\Columns\TextColumn::make('owner.phone'),
+                Tables\Columns\TextColumn::make('owner.email'),
+                
+              //fin tabla paciente - end table patient  
             ])
             ->filters([
                 //
+                Tables\Filters\SelectFilter::make('type')
+                ->options([
+                    'cat' => 'Cat',
+                    'dog' => 'Dog',
+                    'rabbit' => 'Rabbit',
+                    'elephant' => 'Elephant',
+                    'tiger' => 'Tiger',
+                ]),
+
+                
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
