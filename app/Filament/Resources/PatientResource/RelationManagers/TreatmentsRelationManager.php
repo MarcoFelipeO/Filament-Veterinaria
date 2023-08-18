@@ -48,6 +48,8 @@ class TreatmentsRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('price')
                 ->money('CLP')
                 ->sortable(), //permite que la columna sea ordenable en la tabla
+                Tables\Columns\TextColumn::make('created_at')
+                ->dateTime('m-d-Y h:i A'),
           
                 ])
             ->filters([

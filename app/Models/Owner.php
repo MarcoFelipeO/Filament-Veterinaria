@@ -24,4 +24,6 @@ class Owner extends Model
     {
         return $this->hasMany(Patient::class);
     }
+
+    
 }

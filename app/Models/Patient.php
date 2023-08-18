@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Patient extends Model
 {
 
+
+
     use HasFactory;
  
 
@@ -33,4 +35,8 @@ class Patient extends Model
     {
         return $this->hasMany(Treatment::class);
     }
+
+
+
+    
 }
