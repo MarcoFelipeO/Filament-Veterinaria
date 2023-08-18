@@ -23,6 +23,7 @@ class AdminPanelProvider extends PanelProvider
     public function panel(Panel $panel): Panel
     {
         return $panel
+        //->topNavigation() // decidimos si queremos tener arriba o al lado los botones
             ->default()
             ->id('admin')
             ->path('admin')
