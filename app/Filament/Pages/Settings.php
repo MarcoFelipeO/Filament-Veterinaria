@@ -7,6 +7,9 @@ use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
 
 
+use Illuminate\Contracts\View\View;
+
+
 class Settings extends Page
 {
 
@@ -26,6 +29,10 @@ class Settings extends Page
     protected static string $view = 'filament.pages.settings';
 
 
+
+       
     
+    
+   
 
 }
