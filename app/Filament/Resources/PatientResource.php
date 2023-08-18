@@ -85,6 +85,7 @@ class PatientResource extends Resource
                 ->searchable(),
                 Tables\Columns\TextColumn::make('owner.phone'),
                 Tables\Columns\TextColumn::make('owner.email'),
+
                 
               //fin tabla paciente - end table patient  
             ])

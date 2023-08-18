@@ -27,4 +27,6 @@ class Treatment extends Model
     {
         return $this->belongsTo(Patient::class);
     }
+
+    
 }
